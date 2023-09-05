@@ -5,6 +5,7 @@ import "@nomicfoundation/hardhat-toolbox";
 import "hardhat-deploy";
 import "@matterlabs/hardhat-zksync-solc";
 import "@matterlabs/hardhat-zksync-verify";
+import "@openzeppelin/hardhat-upgrades";
 
 // If not set, it uses ours Alchemy's default API key.
 // You can get your own at https://dashboard.alchemyapi.io
@@ -28,11 +29,12 @@ const config: HardhatUserConfig = {
   },
   defaultNetwork: "localhost",
   namedAccounts: {
-    deployer: {
-      // By default, it will take the first Hardhat account as the deployer
-      default: 0,
-    },
+    deployer: 0,
+    beneficiary: 1,
+    proxy1: 2,
+    proxy2: 3,
   },
+
   networks: {
     // View the networks that are pre-configured.
     // If the network you are looking for is not here you can add new network settings

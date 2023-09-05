@@ -1,8 +1,9 @@
+import { AiFillGithub, AiFillMediumCircle, AiFillTwitterCircle } from "react-icons/ai";
+import { BsDiscord } from "react-icons/bs";
+import { SiGitbook } from "react-icons/si";
 import { hardhat } from "wagmi/chains";
 import { CurrencyDollarIcon } from "@heroicons/react/24/outline";
-import { HeartIcon } from "@heroicons/react/24/outline";
 import { SwitchTheme } from "~~/components/SwitchTheme";
-import { Faucet } from "~~/components/scaffold-eth";
 import { useGlobalState } from "~~/services/store/store";
 import { getTargetNetwork } from "~~/utils/scaffold-eth";
 
@@ -13,7 +14,7 @@ export const Footer = () => {
   const nativeCurrencyPrice = useGlobalState(state => state.nativeCurrencyPrice);
 
   return (
-    <div className="min-h-0 p-5 mb-11 lg:mb-0">
+    <div className="min-h-0 p-5 mb-11 lg:mb-0 bg-secondary">
       <div>
         <div className="fixed flex justify-between items-center w-full z-20 p-4 bottom-0 left-0 pointer-events-none">
           <div className="flex space-x-2 pointer-events-auto">
@@ -23,7 +24,7 @@ export const Footer = () => {
                 <span>{nativeCurrencyPrice}</span>
               </div>
             )}
-            {getTargetNetwork().id === hardhat.id && <Faucet />}
+            {getTargetNetwork().id === hardhat.id}
           </div>
           <SwitchTheme className="pointer-events-auto" />
         </div>
@@ -33,35 +34,56 @@ export const Footer = () => {
           <div className="flex justify-center items-center gap-2 text-sm w-full">
             <div>
               <a
-                href="https://github.com/scaffold-eth/se-2"
+                href="https://blog.thebyzant.com"
                 target="_blank"
                 rel="noreferrer"
                 className="underline underline-offset-2"
               >
-                Fork me
-              </a>
-            </div>
-            <span>·</span>
-            <div>
-              Built with <HeartIcon className="inline-block h-4 w-4" /> at 🏰{" "}
-              <a
-                href="https://buidlguidl.com/"
-                target="_blank"
-                rel="noreferrer"
-                className="underline underline-offset-2"
-              >
-                BuidlGuidl
+                <AiFillMediumCircle className="inline-block h-8 w-8" />
               </a>
             </div>
             <span>·</span>
             <div>
               <a
-                href="https://t.me/joinchat/KByvmRe5wkR-8F_zz6AjpA"
+                href="https://discord.gg/rwfA4UrC"
                 target="_blank"
                 rel="noreferrer"
                 className="underline underline-offset-2"
               >
-                Support
+                <BsDiscord className="inline-block h-8 w-8" />
+              </a>
+            </div>
+            <span>·</span>
+            <div>
+              <a
+                href="https://github.com/thebyzant"
+                target="_blank"
+                rel="noreferrer"
+                className="underline underline-offset-2"
+              >
+                <AiFillGithub className="inline-block h-8 w-8" />
+              </a>
+            </div>
+            <span>·</span>
+            <div>
+              <a
+                href="https://twitter.com/thebyzant"
+                target="_blank"
+                rel="noreferrer"
+                className="underline underline-offset-2"
+              >
+                <AiFillTwitterCircle className="inline-block h-8 w-8" />
+              </a>
+            </div>
+            <span>·</span>
+            <div>
+              <a
+                href="https://docs.thebyzant.com"
+                target="_blank"
+                rel="noreferrer"
+                className="underline underline-offset-2"
+              >
+                <SiGitbook className="inline-block h-8 w-8" />
               </a>
             </div>
           </div>

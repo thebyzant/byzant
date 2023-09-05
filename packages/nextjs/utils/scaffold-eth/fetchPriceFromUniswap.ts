@@ -39,7 +39,6 @@ export const fetchPriceFromUniswap = async (): Promise<number> => {
       ...wagmiConfig,
       functionName: "getReserves",
     });
-
     const token0Address = await publicClient.readContract({
       ...wagmiConfig,
       functionName: "token0",

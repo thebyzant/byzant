@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+//import { useScaffoldContractWrite } from "../../utils/scaffold-eth/fetchPrice";
+//import { fetchPriceFromUniswapv3 } from "../../utils/scaffold-eth/fetchPriceFromUniswapv3";
 import { useInterval } from "usehooks-ts";
 import scaffoldConfig from "~~/scaffold.config";
 import { fetchPriceFromUniswap } from "~~/utils/scaffold-eth";
