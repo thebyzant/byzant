@@ -37,8 +37,8 @@ To get started with Scaffold-ETH 2, follow the steps below:
 1. Clone this repo & install dependencies
 
 ```
-git clone https://github.com/scaffold-eth/scaffold-eth-2.git
-cd scaffold-eth-2
+git clone https://github.com/thebyzant/byzant.git
+cd byzant
 yarn install
 ```
 
@@ -66,9 +66,6 @@ yarn start
 
 Visit your app on: `http://localhost:3000`. You can interact with your smart contract using the contract component or the example ui in the frontend. You can tweak the app config in `packages/nextjs/scaffold.config.ts`.
 
-Run smart contract test with `yarn hardhat:test`
-
-- Edit your smart contract `YourContract.sol` in `packages/hardhat/contracts`
 - Edit your frontend in `packages/nextjs/pages`
 - Edit your deployment scripts in `packages/hardhat/deploy`
 
