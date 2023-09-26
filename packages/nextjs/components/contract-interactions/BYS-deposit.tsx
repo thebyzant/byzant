@@ -11,7 +11,7 @@ export const BYSd = () => {
   const { writeAsync, isLoading } = useScaffoldContractWrite({
     contractName: "BYS",
     functionName: "deposit",
-    args: [BigInt(newAmount.concat("000000000000000000")), address],
+    args: [BigInt(newAmount.concat("000000")), address],
     onBlockConfirmation: txnReceipt => {
       console.log("📦 Transaction blockHash", txnReceipt.blockHash);
     },
@@ -52,12 +52,12 @@ export const BYSd = () => {
       <div className="flex flex-row justify-center gap-4">
         <div>
           <span className="font-light text-xs">
-            BYT Balance: {BYTbalance?.toString().slice(0, BYTbalance.toString.length - 18) || 0}
+            BYT Balance: {BYTbalance?.toString().slice(0, BYTbalance.toString.length - 6) || 0}
           </span>
         </div>
         <div>
           <span className="font-light text-xs">
-            BYS Balance: {BYTsbalance?.toString().slice(0, BYTsbalance.toString.length - 18) || 0}
+            BYS Balance: {BYTsbalance?.toString().slice(0, BYTsbalance.toString.length - 6) || 0}
           </span>
         </div>
       </div>

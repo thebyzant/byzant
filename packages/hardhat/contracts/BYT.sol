@@ -10,44 +10,55 @@ import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import "hardhat-deploy/solc_0.8/proxy/Proxied.sol";
 
-contract BYT is Initializable, ERC20Upgradeable, ERC20BurnableUpgradeable, PausableUpgradeable, OwnableUpgradeable, ERC20PermitUpgradeable, UUPSUpgradeable, Proxied {
-    /// @custom:oz-upgrades-unsafe-allow constructor
-    constructor() {
-        _disableInitializers();
-    }
+contract BYT is
+	Initializable,
+	ERC20Upgradeable,
+	ERC20BurnableUpgradeable,
+	PausableUpgradeable,
+	OwnableUpgradeable,
+	ERC20PermitUpgradeable,
+	UUPSUpgradeable,
+	Proxied
+{
+	/// @custom:oz-upgrades-unsafe-allow constructor
+	constructor() {
+		_disableInitializers();
+	}
 
-    function init() initializer public {
-        __ERC20_init("Byzant", "BYT");
-        __ERC20Burnable_init();
-        __Pausable_init();
-        __Ownable_init();
-        __ERC20Permit_init("Byzant");
-        __UUPSUpgradeable_init();
-    }
+	function init() public initializer {
+		__ERC20_init("Byzant", "BYT");
+		__ERC20Burnable_init();
+		__Pausable_init();
+		__Ownable_init();
+		__ERC20Permit_init("Byzant");
+		__UUPSUpgradeable_init();
+	}
 
-    function pause() public onlyOwner {
-        _pause();
-    }
+	function decimals() public pure override returns (uint8) {
+		return 6;
+	}
 
-    function unpause() public onlyOwner {
-        _unpause();
-    }
+	function pause() public onlyOwner {
+		_pause();
+	}
 
-    function mint(address to, uint256 amount) public onlyOwner {
-        _mint(to, amount);
-    }
+	function unpause() public onlyOwner {
+		_unpause();
+	}
 
-    function _beforeTokenTransfer(address from, address to, uint256 amount)
-        internal
-        whenNotPaused
-        override
-    {
-        super._beforeTokenTransfer(from, to, amount);
-    }
+	function mint(address to, uint256 amount) public onlyOwner {
+		_mint(to, amount);
+	}
 
-    function _authorizeUpgrade(address newImplementation)
-        internal
-        onlyOwner
-        override
-    {}
+	function _beforeTokenTransfer(
+		address from,
+		address to,
+		uint256 amount
+	) internal override whenNotPaused {
+		super._beforeTokenTransfer(from, to, amount);
+	}
+
+	function _authorizeUpgrade(
+		address newImplementation
+	) internal override onlyOwner {}
 }

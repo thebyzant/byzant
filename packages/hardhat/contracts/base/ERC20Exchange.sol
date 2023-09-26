@@ -2,6 +2,7 @@
 pragma solidity 0.8.17;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import "@openzeppelin/contracts/utils/Address.sol";
 import "./ERC20Internal.sol";
 import "../../libraries/Constants.sol";
@@ -32,6 +33,7 @@ interface IApprovalReceiver {
 }
 
 abstract contract ERC20Exchange is IERC20, ERC20Internal {
+	using SafeERC20 for IERC20;
 	using Address for address;
 
 	uint256 internal _totalSupply;

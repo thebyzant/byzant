@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { format } from "date-fns";
 import type { NextPage } from "next";
+import { DayPicker } from "react-day-picker";
+import "react-day-picker/dist/style.css";
 import { useWalletClient } from "wagmi";
 import { Header } from "~~/components/Header-testnet";
 import { MetaHeader } from "~~/components/MetaHeader";
@@ -9,6 +12,12 @@ import { useScaffoldContractRead } from "~~/hooks/scaffold-eth";
 const Audit: NextPage = () => {
   const address = useWalletClient().data?.account.address;
   const [url, setUrl] = useState("");
+  const [selected, setSelected] = useState<Date>();
+
+  let footer = <p>Please pick a day.</p>;
+  if (selected) {
+    footer = <p>You picked {format(selected, "PP")}.</p>;
+  }
 
   const { data: BYSbalance } = useScaffoldContractRead({
     contractName: "BYS",
@@ -18,26 +27,21 @@ const Audit: NextPage = () => {
 
   useEffect(() => {
     // declare the data fetching function
-    const fetchData = async (query: string) => {
-      const data = await fetch(`https://graphql.contentful.com/content/v1/spaces/thdia5tnhbeh`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer pIrRuIgOFky25vIxzkKqK3W6hYVhrvuJAf7o9_7um_o`,
-        },
-        body: JSON.stringify({ query }),
-      }).then(data => data.json());
-      setUrl(data.data.brokerStatements.statement.url);
+    const fetchData = async () => {
+      setUrl(
+        `https://res.cloudinary.com/du0drdeby/image/upload/v1695754211/${format(
+          selected || new Date(),
+          "yyyy-MM-dd",
+        )}.png`,
+      );
     };
     // call the function
-    fetchData(
-      'query brokerStatementsEntryQuery {\n  brokerStatements(id: "a5IK08LQhPb6rTJpu9zM2") {\n    sys {\n      id\n    }\n    statement {\n      url\n    }\n  }\n}\n',
-    )
+    fetchData()
       // make sure to catch any error
       .catch(console.error);
-  }, []);
+  }, [selected]);
 
-  if (Number(BYSbalance?.toString().slice(0, BYSbalance.toString.length - 18)) > 0) {
+  if (Number(BYSbalance?.toString().slice(0, BYSbalance.toString.length - 6)) > 0) {
     return (
       <>
         <Header />
@@ -50,10 +54,12 @@ const Audit: NextPage = () => {
           <div className="w-full p-6 bg-primary border border-gray-200 rounded-[20px] shadow-md lg:max-w-md text-center">
             <div className="flex flex-col">
               <span className="font-bold leading-tight">
-                BYS Balance: {BYSbalance?.toString().slice(0, BYSbalance.toString.length - 18) || 0}
+                BYS Balance: {BYSbalance?.toString().slice(0, BYSbalance.toString.length - 6) || 0}
               </span>
-              <span className="text-xs">1 bUSDC = 0.7119 BYS</span>
+              <span className="text-xs">1 bUSDC = 0.661226 BYS</span>
             </div>
+            <br></br>
+            <DayPicker mode="single" selected={selected} onSelect={setSelected} footer={footer} />
             <Image
               src={url}
               priority={true}

@@ -1,28 +1,38 @@
-import { expect } from "chai";
-import { ethers } from "hardhat";
-import { YourContract } from "../typechain-types";
+import { expect } from "./chai-setup";
+import { ethers, deployments, getNamedAccounts } from "hardhat";
 
-describe("YourContract", function () {
-  // We define a fixture to reuse the same setup in every test.
+describe("VendorV2", function () {
+  it("Should return deployer account address", async function () {
+    await deployments.fixture(["SimpleERC20_builtin_UUPS"]);
+    const { deployer } = await getNamedAccounts();
+    const Token = await ethers.getContractAt("BUSDC", "0x5fbdb2315678afecb367f032d93f642f64180aa3");
+    const ownerBalance = await Token.balanceOf(deployer);
+    const supply = await Token.totalSupply();
+    expect(ownerBalance).to.equal(supply);
 
-  let yourContract: YourContract;
-  before(async () => {
-    const [owner] = await ethers.getSigners();
-    const yourContractFactory = await ethers.getContractFactory("YourContract");
-    yourContract = (await yourContractFactory.deploy(owner.address)) as YourContract;
-    await yourContract.deployed();
-  });
-
-  describe("Deployment", function () {
-    it("Should have the right message on deploy", async function () {
-      expect(await yourContract.greeting()).to.equal("Building Unstoppable Apps!!!");
+    /** 
+    const myBUSDC = await deploy("BUSDC", {
+      contract: "BUSDC",
+      from: deployer,
+      log: true,
     });
-
-    it("Should allow setting a new message", async function () {
-      const newGreeting = "Learn Scaffold-ETH 2! :)";
-
-      await yourContract.setGreeting(newGreeting);
-      expect(await yourContract.greeting()).to.equal(newGreeting);
+    const myBUSDT = await deploy("BUSDT", {
+      contract: "BUSDT",
+      from: deployer,
+      log: true,
     });
+    const myBYT = await deploy("BYT", {
+      contract: "BYT",
+      from: deployer,
+      log: true,
+    });
+    const myVendor = await deploy("VendorV2", {
+      contract: "VendorV2",
+      from: deployer,
+      args: [myBUSDC.address, myBUSDT.address, myBYT.address, 100],
+      log: true,
+    });
+    console.log(myVendor.address);
+      */
   });
 });

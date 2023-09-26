@@ -9,7 +9,7 @@ export const BUSDC = () => {
   const { writeAsync, isLoading } = useScaffoldContractWrite({
     contractName: "BUSDC",
     functionName: "approve",
-    args: ["0x5FC8d32690cc91D4c39d9d3abcBD16989F875707", BigInt(newAmount.concat("000000000000000000"))],
+    args: ["0x25Ec63B028C43334733dBC70E2B21329d9836788", BigInt(newAmount.concat("000000"))],
     onBlockConfirmation: txnReceipt => {
       console.log("📦 Transaction blockHash", txnReceipt.blockHash);
     },
@@ -19,7 +19,7 @@ export const BUSDC = () => {
   const { data: allowance } = useScaffoldContractRead({
     contractName: "BUSDC",
     functionName: "allowance",
-    args: [address, "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707"],
+    args: [address, "0x25Ec63B028C43334733dBC70E2B21329d9836788"],
   });
 
   return (
@@ -27,7 +27,7 @@ export const BUSDC = () => {
       <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-5">
         <input
           type="text"
-          placeholder="bUSDC approval amount"
+          placeholder="Vendor bUSDC approval amount"
           className="input font-bai-jamjuree w-full px-5 border border-primary text-lg placeholder-white uppercase"
           onChange={e => {
             if (e.target.value) {
@@ -61,7 +61,7 @@ export const BUSDC = () => {
       <div className="flex flex-col">
         <span className="font-bold leading-tight">
           Current bUSDC allowance for exchange contract:{" "}
-          {allowance?.toString().slice(0, allowance.toString.length - 18) || 0}
+          {allowance?.toString().slice(0, allowance.toString.length - 6) || 0}
         </span>
       </div>
     </>

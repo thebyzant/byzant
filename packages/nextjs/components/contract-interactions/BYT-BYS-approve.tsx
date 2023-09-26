@@ -9,7 +9,7 @@ export const BYTa = () => {
   const { writeAsync, isLoading } = useScaffoldContractWrite({
     contractName: "BYT",
     functionName: "approve",
-    args: ["0x0165878A594ca255338adfa4d48449f69242Eb8F", BigInt(newAmount.concat("000000000000000000"))],
+    args: ["0xC065c61358A9454567eC80d0f8EfAfc2d0587270", BigInt(newAmount.concat("000000"))],
     onBlockConfirmation: txnReceipt => {
       console.log("📦 Transaction blockHash", txnReceipt.blockHash);
     },
@@ -19,7 +19,7 @@ export const BYTa = () => {
   const { data: allowance } = useScaffoldContractRead({
     contractName: "BYT",
     functionName: "allowance",
-    args: [address, "0x0165878A594ca255338adfa4d48449f69242Eb8F"],
+    args: [address, "0xC065c61358A9454567eC80d0f8EfAfc2d0587270"],
   });
 
   return (
@@ -61,7 +61,7 @@ export const BYTa = () => {
       <div className="flex flex-col">
         <span className="font-bold leading-tight">
           Current BYT allowance for staking contract:{" "}
-          {allowance?.toString().slice(0, allowance.toString.length - 18) || 0}
+          {allowance?.toString().slice(0, allowance.toString.length - 6) || 0}
         </span>
       </div>
     </>

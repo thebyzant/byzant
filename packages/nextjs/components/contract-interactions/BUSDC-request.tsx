@@ -8,7 +8,7 @@ export const BUSDCreq = () => {
   const { writeAsync, isLoading } = useScaffoldContractWrite({
     contractName: "BUSDC",
     functionName: "requestTokens",
-    args: [newAddress, 10000000000000000000000n],
+    args: [newAddress, 100000000n],
     onBlockConfirmation: txnReceipt => {
       console.log("📦 Transaction blockHash", txnReceipt.blockHash);
     },

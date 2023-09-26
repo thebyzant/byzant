@@ -11,7 +11,7 @@ export const BYSp = () => {
   const { data: preview } = useScaffoldContractRead({
     contractName: "BYS",
     functionName: "previewDeposit",
-    args: [BigInt(newAmount.concat("000000000000000000"))],
+    args: [BigInt(newAmount.concat("000000"))],
   });
 
   const { data: BYTbalance } = useScaffoldContractRead({
@@ -49,12 +49,12 @@ export const BYSp = () => {
       <div className="flex flex-row justify-center gap-4">
         <div>
           <span className="font-light text-xs">
-            BYT Balance: {BYTbalance?.toString().slice(0, BYTbalance.toString.length - 18) || 0}
+            BYT Balance: {BYTbalance?.toString().slice(0, BYTbalance.toString.length - 6) || 0}
           </span>
         </div>
         <div>
           <span className="font-light text-xs">
-            BYS Balance: {BYTsbalance?.toString().slice(0, BYTsbalance.toString.length - 18) || 0}
+            BYS Balance: {BYTsbalance?.toString().slice(0, BYTsbalance.toString.length - 6) || 0}
           </span>
         </div>
       </div>
@@ -77,7 +77,7 @@ export const BYSp = () => {
           <form method="dialog" className="modal-box">
             <h3 className="font-bold text-lg">Preview Amount</h3>
             <p className="py-4">
-              You would receive {preview?.toString().slice(0, preview.toString.length - 18) || 0} BYS
+              You would receive {preview?.toString().slice(0, preview.toString.length - 6) || 0} BYS
             </p>
             <div className="modal-action">
               {/* if there is a button in form, it will close the modal */}

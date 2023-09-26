@@ -21,7 +21,7 @@ contract BYS is xERC4626, Ownable {
 		uint32 _rewardsCycleLength
 	)
 		xERC4626(_rewardsCycleLength)
-		ERC4626(_byt, "Byzant Money Market", "BYS")
+		ERC4626(_byt, "Byzant Vault", "BYS")
 	{}
 
 	/*///////////////////////////////////////////////////////////////

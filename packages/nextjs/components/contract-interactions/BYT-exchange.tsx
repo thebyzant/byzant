@@ -7,9 +7,10 @@ export const BYTex = () => {
   const [newAmount, setNewAmount] = useState("");
 
   const { writeAsync, isLoading } = useScaffoldContractWrite({
-    contractName: "Vendor",
-    functionName: "exchangeUSDC",
-    args: [BigInt(newAmount.toString().concat("000000000000000000"))],
+    contractName: "BYTVendor",
+    functionName: "purchaseForBUSDC",
+    args: [BigInt(newAmount.toString().concat("000000"))],
+    value: `${0}`,
     onBlockConfirmation: txnReceipt => {
       console.log("📦 Transaction blockHash", txnReceipt.blockHash);
     },
@@ -33,16 +34,16 @@ export const BYTex = () => {
       <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-5">
         <input
           type="text"
-          placeholder="bUSDC to BYT exchange amount"
+          placeholder="BYT purchase amount"
           className="input font-bai-jamjuree w-full px-5 border border-primary text-lg placeholder-white uppercase"
           onChange={e => setNewAmount(e.target.value)}
         />
       </div>
       <div className="flex flex-col">
         <span className="font-bold leading-tight">
-          bUSDC Balance: {balance?.toString().slice(0, balance.toString.length - 18) || 0}
+          bUSDC Balance: {balance?.toString().slice(0, balance.toString.length - 6) || 0}
         </span>
-        <span className="text-xs">1 bUSDC = 0.7119 BYT</span>
+        <span className="text-xs">1 bUSDC = 0.661226 BYT</span>
       </div>
       <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-5">
         <input
@@ -50,14 +51,14 @@ export const BYTex = () => {
           placeholder="BYT amount"
           className="input font-bai-jamjuree w-full px-5 border border-primary text-lg placeholder-white uppercase"
           disabled={true}
-          value={+newAmount / 1.404627262}
+          value={+newAmount * 1.512342}
         />
       </div>
       <div className="flex flex-col">
         <span className="font-bold leading-tight">
-          BYT Balance: {BYTbalance?.toString().slice(0, BYTbalance.toString.length - 18) || 0}
+          BYT Balance: {BYTbalance?.toString().slice(0, BYTbalance.toString.length - 6) || 0}
         </span>
-        <span className="text-xs">1 BYT = 1.4046 bUSDC</span>
+        <span className="text-xs">1 BYT = 1.512342 bUSDC</span>
       </div>
       <div className="flex rounded-full border content-center border-secondary">
         <button

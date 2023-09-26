@@ -16,15 +16,15 @@ contract Vendor is
 	Proxied,
 	UUPSUpgradeable
 {
-	constructor(address to, uint256 amount) WithPermitAndFixedDomain("1") {
-		init(address(0), to, amount);
+	constructor(address to, uint256 amount, address usdc, address byt) WithPermitAndFixedDomain("1") {
+		init(address(0), to, amount, usdc, byt);
 	}
 
 	IERC20 _USDC;
 	IERC20 _USDT;
 	IERC20 _BYT;
 
-	function init(address owner, address to, uint256 amount) public proxied {
+	function init(address owner, address to, uint256 amount, address usdc, address byt) public proxied {
 		// solhint-disable-next-line security/no-inline-assembly
 		assembly {
 			sstore(
@@ -34,15 +34,15 @@ contract Vendor is
 		}
 
 		_mint(to, amount);
-		_USDC = IERC20(0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512);
+		_USDC = IERC20(usdc);
 		_USDT = IERC20(0x5FbDB2315678afecb367f032d93F642f64180aa3);
-		_BYT = IERC20(0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9);
+		_BYT = IERC20(byt);
 	}
 
-	string public constant symbol = "BYTex";
+	string public constant symbol = "BYTV";
 
 	function name() public pure override returns (string memory) {
-		return "ByzantExchange";
+		return "Exchange";
 	}
 
 	function _authorizeUpgrade(address) internal override proxied {}
