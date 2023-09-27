@@ -2,7 +2,10 @@ import React, { useCallback, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Bars3Icon, SparklesIcon } from "@heroicons/react/24/outline";
+import { AiOutlineAudit } from "react-icons/ai";
+import { PiVaultBold } from "react-icons/pi";
+import { RiExchangeDollarLine } from "react-icons/ri";
+import { Bars3Icon } from "@heroicons/react/24/outline";
 import { RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
 import { useOutsideClick } from "~~/hooks/scaffold-eth";
 
@@ -41,19 +44,19 @@ export const Header = () => {
       </li>
       <li>
         <NavLink href="/trade">
-          <SparklesIcon className="h-4 w-4" />
+          <RiExchangeDollarLine />
           Exchange
         </NavLink>
       </li>
       <li>
         <NavLink href="/stake">
-          <SparklesIcon className="h-4 w-4" />
+          <PiVaultBold />
           Stake
         </NavLink>
       </li>
       <li>
         <NavLink href="/audit">
-          <SparklesIcon className="h-4 w-4" />
+          <AiOutlineAudit />
           Audit
         </NavLink>
       </li>
