@@ -89,6 +89,9 @@ export const Footer = () => {
           </div>
         </ul>
       </div>
+      <div className="my-10 text-sm text-center text-gray-600 dark:text-white">
+        Copyright © {new Date().getFullYear()}. Made with ♥ by{" The Byzant DAO "}
+      </div>
     </div>
   );
 };
