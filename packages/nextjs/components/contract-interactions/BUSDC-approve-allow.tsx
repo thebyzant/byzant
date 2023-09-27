@@ -28,7 +28,7 @@ export const BUSDC = () => {
         <input
           type="text"
           placeholder="Vendor bUSDC approval amount"
-          className="input font-bai-jamjuree w-full px-5 border border-primary text-lg placeholder-white uppercase"
+          className="input font-bai-jamjuree w-9/12 px-5 border border-primary text-lg placeholder-white uppercase"
           onChange={e => {
             if (e.target.value) {
               const reg = new RegExp("^[0-9]+$");
@@ -41,21 +41,19 @@ export const BUSDC = () => {
             }
           }}
         />
-        <div className="flex rounded-full border border-primary p-1 flex-shrink-0">
-          <div className="flex rounded-full border-2 border-primary p-1">
-            <button
-              className={`btn btn-primary rounded-full capitalize font-normal font-white w-24 flex items-center gap-1 hover:gap-2 transition-all tracking-widest ${
-                isLoading ? "loading" : ""
-              }`}
-              onClick={() => writeAsync()}
-            >
-              {!isLoading && (
-                <>
-                  Approve <ArrowSmallRightIcon className="w-3 h-3 mt-0.5" />
-                </>
-              )}
-            </button>
-          </div>
+        <div className="flex rounded-full border-2 border-neutral">
+          <button
+            className={`btn btn-primary rounded-full capitalize font-normal font-white flex items-center gap-1 hover:gap-2 transition-all tracking-widest ${
+              isLoading ? "loading" : ""
+            }`}
+            onClick={() => writeAsync()}
+          >
+            {!isLoading && (
+              <>
+                Approve <ArrowSmallRightIcon className="w-3 h-3 mt-0.5" />
+              </>
+            )}
+          </button>
         </div>
       </div>
       <div className="flex flex-col">

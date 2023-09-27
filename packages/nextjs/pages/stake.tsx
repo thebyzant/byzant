@@ -17,7 +17,7 @@ const Stake: NextPage = () => {
         <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree&display=swap" rel="stylesheet" />
       </MetaHeader>
       <div className="grid h-screen place-items-center">
-        <div className="w-full p-6 bg-primary border border-gray-200 rounded-[20px] shadow-md lg:max-w-md text-center">
+        <div className="w-full p-6 bg-primary border border-gray-200 rounded-[20px] shadow-md lg:max-w-2xl text-center">
           <div className="join items-start">
             <button className="btn join-item" onClick={() => setDeposit(true)}>
               Deposit

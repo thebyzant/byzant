@@ -16,7 +16,7 @@ const Trade: NextPage = () => {
         <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree&display=swap" rel="stylesheet" />
       </MetaHeader>
       <div className="grid h-screen place-items-center">
-        <div className="w-full p-2 bg-primary border border-gray-200 rounded-[20px] shadow-md lg:max-w-md text-center">
+        <div className="w-full p-2 bg-primary border border-gray-200 rounded-[20px] shadow-md lg:max-w-4xl text-center">
           <BUSDCreq />
           <BUSDC />
           <BYTex />

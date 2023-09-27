@@ -91,9 +91,8 @@ export const Benefits = () => {
               </div>
               <div>
                 <p className="py-6">
-                  The BYS stablecoin is not only intended for online use and executing crypto trading strategies but
-                  also for splitting the bill at your local restaurant or paying for your groceries offline while
-                  earning yield.
+                  The BYS medium of exchange is not only intended for online use and executing crypto trading strategies
+                  but also for exhanging it for your groceries offline while earning yield.
                 </p>
               </div>
             </div>
@@ -104,7 +103,7 @@ export const Benefits = () => {
               <div>
                 <p className="py-6">
                   It is native decentralized and self regulated when needed e.g. daily publishing of brokerage account
-                  statements to make offchain audits possible for the community in a transparent way.
+                  statements to make off-chain audits possible for the community in a transparent way.
                 </p>
               </div>
             </div>

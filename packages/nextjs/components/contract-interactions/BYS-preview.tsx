@@ -58,7 +58,7 @@ export const BYSp = () => {
           </span>
         </div>
       </div>
-      <div className="flex rounded-full border content-center border-secondary">
+      <div className="flex rounded-full border content-center border-neutral">
         <button
           className={`btn btn-primary rounded-full capitalize font-normal font-white w-full items-center gap-1 hover:gap-2 transition-all tracking-widest`}
           onClick={() => {

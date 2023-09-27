@@ -29,12 +29,12 @@ const faqdata = [
   {
     question: "How is the fixed exchange rate calculated",
     answer:
-      "The Byzant will first be exchangable to U.S. Dollar equivalents USDC and USDT at a rate of 1.4046 USD to 1 BYZ. The exchange rate is based upon a. economic output b. amount of money in circulation and c. factors to incentivize higher economic output and lower amount of money in circulation.",
+      "The Byzant will first be exchangable to U.S. Dollar equivalents USDC and USDT at a rate of 1.512342 USD to 1 BYT. The exchange rate is based upon a. economic output b. amount of money in circulation and c. factors to incentivize higher economic output and lower amount of money in circulation.",
   },
   {
     question: "What is the worst case scenario?",
     answer:
-      "Since all BYZ are fully backed by a central bank issued currency, focusing on U.S. Dollar at launch, the worst case will be that 1 BYZ which is worth 1.4046 USD will reduce its value and be equal to 1 USD.",
+      "Since all BYT are fully backed by a central bank issued currency, focusing on U.S. Dollar at launch, the worst case will be that 1 BYT which is worth 1.512342 USD will reduce its value and be equal to 1 USD.",
   },
   {
     question: "Will you add other currencies?",
@@ -44,7 +44,7 @@ const faqdata = [
   {
     question: "How can I earn yield?",
     answer:
-      "We recommend that users exchange their USDC or USDT to BYZ and stake the BYZ to receive yield-bearing BYS. All U.S. Dollars will be invested into money market funds such as the Vanguard Federal Money Market Fund which currently has a 5.25% 7 day SEC yield. The rewards will be distributed daily to all BYS holders. Since BYS and BYZ are interchangeble and fixed to the USD, it allows you to use a yield bearing Stablecoin to execute other trading, lending etc. strategies.",
+      "Once you exchange your USDC or USDT for BYT, you can allocate those tokens to the BYT Vault and receive receive yield-bearing BYS. All U.S. Dollars will be invested into money market funds such as the Vanguard Federal Money Market Fund which currently has a 5.25% 7 day SEC yield. The rewards will be distributed daily to all BYS holders. Since BYS and BYT are interchangeble and fixed to the USD, it allows you to use a yield bearing medium of exchange to execute other trading, lending etc. strategies.",
   },
   {
     question: "Who is behind this project?",
