@@ -5,7 +5,6 @@ import type { NextPage } from "next";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
 import { useWalletClient } from "wagmi";
-import { Header } from "~~/components/Header-testnet";
 import { MetaHeader } from "~~/components/MetaHeader";
 import { useScaffoldContractRead } from "~~/hooks/scaffold-eth";
 
@@ -44,7 +43,6 @@ const Audit: NextPage = () => {
   if (Number(BYSbalance?.toString().slice(0, BYSbalance.toString.length - 6)) > 0) {
     return (
       <>
-        <Header />
         <MetaHeader title="Exchanging and Swapping BYZ/BYS" description="Get BYZ">
           {/* We are importing the font this way to lighten the size of SE2. */}
           <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -76,7 +74,6 @@ const Audit: NextPage = () => {
   } else
     return (
       <>
-        <Header />
         <MetaHeader title="Exchanging and Swapping BYZ/BYS" description="Get BYZ">
           {/* We are importing the font this way to lighten the size of SE2. */}
           <link rel="preconnect" href="https://fonts.googleapis.com" />

@@ -35,7 +35,7 @@ export const BYSd = () => {
         <input
           type="text"
           placeholder="BYT staking amount"
-          className="input font-bai-jamjuree w-full px-5 border border-primary text-center text-lg placeholder-white uppercase"
+          className="input font-bai-jamjuree w-full px-5 border border-primary text-lg placeholder-white uppercase"
           onChange={e => {
             if (e.target.value) {
               const reg = new RegExp("^[0-9]+$");
